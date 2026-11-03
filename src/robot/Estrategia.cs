@@ -13,8 +13,9 @@ internal static class Estrategia
         if (estat.IdTorn == 1)
             return (aleatori.Next(estat.Amplada), aleatori.Next(estat.Alcada));
 
+        // Estem a mitja partida?
         if (estat.PosicionsX[jugador] is not int x || estat.PosicionsY[jugador] is not int y)
-            return null; // Sense entrada al torn 1, no es pot entrar més tard.
+            return (aleatori.Next(estat.Amplada), aleatori.Next(estat.Alcada));
 
         // Preparem com a màxim quatre destinacions vàlides respecte de la posició inicial.
         int[] canvisX = [0, 1, 0, -1];
