@@ -16,8 +16,8 @@ CREATE TABLE dbo.configuracio
 CREATE TABLE dbo.jugadors
 (
     id_jugador char(1) NOT NULL PRIMARY KEY,
-    posicio_x int NOT NULL,
-    posicio_y int NOT NULL,
+    posicio_x int NULL,
+    posicio_y int NULL,
     actiu bit NOT NULL DEFAULT (1)
 );
 
@@ -38,13 +38,6 @@ CREATE TABLE dbo.caselles
     nivell tinyint NOT NULL DEFAULT (0),
     torn_actualitzacio int NULL REFERENCES dbo.torns (id_torn),
     PRIMARY KEY (posicio_x, posicio_y)
-);
-
-CREATE TABLE dbo.participants_torn
-(
-    id_torn int NOT NULL REFERENCES dbo.torns (id_torn),
-    id_jugador char(1) NOT NULL REFERENCES dbo.jugadors (id_jugador),
-    PRIMARY KEY (id_torn, id_jugador)
 );
 
 CREATE TABLE dbo.moviments
@@ -98,13 +91,11 @@ GRANT SELECT ON OBJECT::dbo.configuracio TO rol_alumnes;
 GRANT SELECT ON OBJECT::dbo.jugadors TO rol_alumnes;
 GRANT SELECT ON OBJECT::dbo.torns TO rol_alumnes;
 GRANT SELECT ON OBJECT::dbo.caselles TO rol_alumnes;
-GRANT SELECT ON OBJECT::dbo.participants_torn TO rol_alumnes;
 GRANT SELECT, INSERT ON OBJECT::dbo.moviments TO rol_alumnes;
 
 GRANT SELECT, UPDATE ON OBJECT::dbo.configuracio TO rol_arbitre;
 GRANT SELECT, INSERT, UPDATE ON OBJECT::dbo.jugadors TO rol_arbitre;
 GRANT SELECT, INSERT, UPDATE ON OBJECT::dbo.torns TO rol_arbitre;
 GRANT SELECT, INSERT, UPDATE ON OBJECT::dbo.caselles TO rol_arbitre;
-GRANT SELECT, INSERT ON OBJECT::dbo.participants_torn TO rol_arbitre;
 GRANT SELECT ON OBJECT::dbo.moviments TO rol_arbitre;
 GO

@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="roboarbit/roboarbit.csproj" />
+  <Project Path="robot/robot.csproj" />
+  <Project Path="../tests/roboarbit.proves/roboarbit.proves.csproj" />
+  <Project Path="../tests/robot.proves/robot.proves.csproj" />
+</Solution>

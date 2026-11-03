@@ -39,6 +39,10 @@ ScaffoldingReadMe.txt
 # dotenv environment variables file
 .env
 
+# Credencials locals dels alumnes
+.credencials-alumnes*.csv
+.credencials-alumnes*.csv.*.tmp
+
 # Others
 ~$*
 *~
